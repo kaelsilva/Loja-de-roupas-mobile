@@ -21,4 +21,17 @@ module.exports = {
         });
         return res.json();
     },
+
+    async update(req, res){
+        const { name, email, password } = req.body;
+        
+        const user = await User.update({
+            name, email, password },
+            { where: {
+                id: req.params.id,
+            }
+        });
+
+        return res.json(user);
+    }
 };
