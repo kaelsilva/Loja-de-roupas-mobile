@@ -11,5 +11,7 @@ routes.put('/users/:id', UserController.update);
 
 routes.post('/users/:user_id/addresses', AddressController.store);
 routes.get('/users/:user_id/addresses', AddressController.index);
+routes.delete('/users/:user_id/addresses/:id', AddressController.destroy);
+routes.put('/users/:user_id/addresses/:id', AddressController.update);
 
 module.exports = routes;

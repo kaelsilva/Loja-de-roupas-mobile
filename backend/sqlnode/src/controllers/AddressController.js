@@ -11,6 +11,7 @@ module.exports = {
 
         return res.json(user.addresses);
     },
+
     async store(req, res){
         const { user_id } = req.params;
         const { zipcode, street, number } = req.body;
@@ -29,5 +30,27 @@ module.exports = {
         });
 
         return res.json(address);
+    },
+
+    async destroy(req, res){
+        const address = await Address.destroy({
+            where: {
+                id: req.params.id,
+            }
+        });
+
+        return res.json(address);
+    },
+
+    async update(req, res){
+        const { zipcode, street, number } = req.body;
+        const address = await Address.update({
+            zipcode, street, number
+        }, { where: {
+                id: req.params.id,
+            }
+        });
+
+        res.json(address);
     }
 };
