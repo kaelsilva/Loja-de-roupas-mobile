@@ -2,27 +2,27 @@ const Product = require('../models/Product');
 
 module.exports = {
     async index(req, res){
-        const customers = await Customer.findAll();
+        const products = await Product.findAll();
 
-        return res.json(customers);
+        return res.json(products);
     },
 
     async show(req, res){
-        const customer = await Customer.findByPk(req.params.id);
+        const products = await Product.findByPk(req.params.id);
 
-        return res.json(customer);
+        return res.json(products);
     },
 
     async store(req, res){
-        const { cpf, name, email, birthday } = req.body;
+        const { name, quantity } = req.body;
 
-        const customer = await Customer.create( { cpf, name, email, birthday } );
+        const product = await Product.create( { name, quantity } );
 
-        return res.json(customer);
+        return res.json(product);
     },
 
     async destroy(req, res){
-        Customer.destroy({
+        Product.destroy({
             where: {
                 id: req.params.id,
             }
@@ -32,15 +32,15 @@ module.exports = {
     },
 
     async update(req, res){
-        const { cpf, name, email, birthday } = req.body;
+        const { name, quantity } = req.body;
 
-        const customer = await Customer.update({ 
-            cpf, name, email, birthday }, {
+        const product = await Product.update({ 
+            name, quantity }, {
                 where: {
                     id: req.params.id,
                 },
             });
 
-        return res.json(customer);
+        return res.json(product);
     }
 }
