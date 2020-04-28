@@ -2,6 +2,7 @@ const express = require('express');
 const UserController = require('./controllers/UserController');
 const AddressController = require('./controllers/AddressController');
 const CustomerController = require('./controllers/CustomerController');
+const ProductController = require('./controllers/ProductController');
 
 const routes = express.Router();
 
@@ -21,5 +22,11 @@ routes.get('/customers', CustomerController.index);
 routes.get('/customers/:id', CustomerController.show);
 routes.delete('/customers/:id', CustomerController.destroy);
 routes.put('/customers/:id', CustomerController.update);
+
+routes.post('/products', ProductController.store);
+routes.get('/products', ProductController.index);
+routes.get('/products/:id', ProductController.show);
+routes.delete('/products/:id', ProductController.destroy);
+routes.put('/products/:id', ProductController.update);
 
 module.exports = routes;
