@@ -6,7 +6,12 @@ Este repositório tem como objetivo o desenvolvimento de uma aplicação mobile 
     * Sequelize
     * Express
   * React-Native
+  * React-Native-CLI
 ### Desenvolvimento
   * Docker
   * Nodemon
   * Sequelize-cli
+  * Babel
+  * ESLint
+  * Jest
+  * Metro
