@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
 import api from '../../services/api';
 
 export default class CustomersScreen extends React.Component{
@@ -32,19 +32,25 @@ export default class CustomersScreen extends React.Component{
 
   render(){
     const { customers } = this.state;
-
     return (
-      <View>
+      <ScrollView>
+        <View style={styles.body}>
         {customers.map(customer => (
-            <View>
-              <Text>Nome do cliente: {customer.name}</Text>
-              <Text>ID: {customer.id}</Text>
-              <Text>CPF: {customer.cpf}</Text>
-              <Text>E-mail: {customer.email}</Text>
-              {/* <Text>Data de nascimento: {customer.birthday}</Text> */}
+            <View style={styles.bodyContainer}>
+              <View style={styles.nameContainer}>
+                <Text style={styles.nameText}>Nome: {customer.name}</Text>
+              </View>
+              <Text style={styles.bodyContainerText}>ID: {customer.id}</Text>
+              <Text style={styles.bodyContainerText}>CPF: {customer.cpf}</Text>
+              <Text style={styles.bodyContainerText}>E-mail: {customer.email}</Text>
+              <Text style={styles.bodyContainerText}>Data de nascimento: {new Date(customer.birthday).toLocaleDateString()}</Text>
+              <TouchableOpacity style={styles.button}>
+                <Text style={styles.buttonText}>Detalhar</Text>
+              </TouchableOpacity>
             </View>
         ))}
-      </View>
+        </View>
+      </ScrollView>
       // <View>
       //   <Text>Customers Screen</Text>
       //   <Button title="Navegar para usuários" onPress={navigateToUsers} />
@@ -52,3 +58,60 @@ export default class CustomersScreen extends React.Component{
     )
   };
 }
+
+const styles = StyleSheet.create({
+  body: {
+    backgroundColor: '#eee',
+    height: '90%',
+    width: '95%',
+    alignSelf: 'center',
+    padding: 1,
+    paddingTop: 80,
+    justifyContent: 'center',
+  },
+  nameContainer: {
+    backgroundColor: '#da552f',
+    borderRadius: 25,
+  },
+  nameText: {
+    textAlign: 'left',
+    color: '#ddd',
+    fontWeight: 'bold',
+    fontSize: 17,
+    fontFamily: 'Trebuchet-MS',
+    paddingTop: 10,
+    textAlignVertical: 'center',
+    marginLeft: 12,
+    marginBottom: 10,
+  },
+  bodyContainer: {
+    textAlign: 'center',
+    paddingBottom: 20,
+    backgroundColor: '#ddd',
+    marginTop: 20,
+    borderRadius: 25
+  },
+  bodyContainerText: {
+    textAlign: 'left',
+    color: '#555',
+    fontFamily: 'Trebuchet-MS',
+    fontSize: 15,
+    marginLeft: 19,
+  },
+  button: {
+    height: 42,
+    width: 90,
+    borderRadius: 5,
+    borderWidth: 2,
+    backgroundColor: 'transparent',
+    marginTop: 10,
+    borderColor: '#da552f',
+    display: 'flex',
+    justifyContent: 'center',
+    alignSelf: 'center'
+  },
+  buttonText: {
+    color: '#da552f',
+    alignSelf: 'center',
+  },
+});
