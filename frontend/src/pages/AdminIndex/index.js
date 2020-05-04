@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function UserIndex( { navigation } ){
+export default function AdminIndex( { navigation } ){
   function navigateToCustomers(){
     navigation.navigate('Customers');
   }

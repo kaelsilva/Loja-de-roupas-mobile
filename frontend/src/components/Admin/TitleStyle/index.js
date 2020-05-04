@@ -1,5 +1,5 @@
 const titleStyle = {
-  title: 'Usuário',
+  title: 'Administrador',
   headerStyle: {
     backgroundColor: '#da552f',           
   },
