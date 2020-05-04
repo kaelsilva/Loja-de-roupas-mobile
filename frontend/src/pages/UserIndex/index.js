@@ -6,10 +6,14 @@ export default function UserIndex( { navigation } ){
     navigation.navigate('Customers');
   }
 
+  function navigateToUsers(){
+    navigation.navigate('Users');
+  }
+
   return (
     <View style={styles.body}>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={navigateToUsers}>
           <Text style={styles.buttonText}>Funcionários</Text>
         </TouchableOpacity>
 
