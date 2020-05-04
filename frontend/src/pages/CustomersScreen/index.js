@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
   nameText: {
     textAlign: 'left',
-    color: '#ddd',
+    color: '#fff',
     fontWeight: 'bold',
     fontSize: 17,
     fontFamily: 'Trebuchet-MS',
