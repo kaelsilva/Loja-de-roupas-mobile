@@ -2,7 +2,7 @@ import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
-import Users from './pages/UsersScreen';
+import Users from './pages/UserIndex';
 import Customers from './pages/CustomersScreen';
 
 import userHeader from './components/User/TitleStyle';
