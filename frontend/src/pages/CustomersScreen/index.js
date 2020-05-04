@@ -36,7 +36,7 @@ export default class CustomersScreen extends React.Component{
       <ScrollView>
         <View style={styles.body}>
         {customers.map(customer => (
-            <View style={styles.bodyContainer}>
+            <View style={styles.bodyContainer} key={customer.id}>
               <View style={styles.nameContainer}>
                 <Text style={styles.nameText}>Nome: {customer.name}</Text>
               </View>
