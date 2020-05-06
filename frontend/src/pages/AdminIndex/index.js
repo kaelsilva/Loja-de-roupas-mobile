@@ -14,6 +14,10 @@ export default function AdminIndex( { navigation } ){
     navigation.navigate('Products');
   }
 
+  function navigateToProviders(){
+    navigation.navigate('Providers');
+  }
+
   return (
     <View style={styles.body}>
 
@@ -21,7 +25,7 @@ export default function AdminIndex( { navigation } ){
           <Text style={styles.buttonText}>Funcionários</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={navigateToProviders}>
           <Text style={styles.buttonText}>Fornecedores</Text>
         </TouchableOpacity>
 
