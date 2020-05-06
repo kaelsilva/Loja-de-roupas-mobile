@@ -1,49 +1,35 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
-import api from '../../services/api';
+import api from '../../../services/api';
 
-export default class CustomersScreen extends React.Component{
+export default class UsersScreen extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      customers: [],
-      // id: '',
-      // cpf: '',
-      // name: '',
-      // email: '',
-      // birthday: '',
-      // createdAt: '',
-      // updatedAt: '',
+      users: []
     }
   }
 
   async componentDidMount(){
-    const response = await api.get('/customers');
+    const response = await api.get('/users');
 
-    const customers = response.data;
+    const users = response.data;
 
-    this.setState({ customers: customers });
+    this.setState({ users: users });
   }
 
-  // navigateToUsers(){
-  //   navigation.navigate('Users')
-  // }
-
-
   render(){
-    const { customers } = this.state;
+    const { users } = this.state;
     return (
       <ScrollView>
         <View style={styles.body}>
-        {customers.map(customer => (
-            <View style={styles.bodyContainer} key={customer.id}>
+        {users.map(user => (
+            <View style={styles.bodyContainer} key={user.id}>
               <View style={styles.nameContainer}>
-                <Text style={styles.nameText}>Nome: {customer.name}</Text>
+                <Text style={styles.nameText}>Nome: {user.name}</Text>
               </View>
-              <Text style={styles.bodyContainerText}>ID: {customer.id}</Text>
-              <Text style={styles.bodyContainerText}>CPF: {customer.cpf}</Text>
-              <Text style={styles.bodyContainerText}>E-mail: {customer.email}</Text>
-              <Text style={styles.bodyContainerText}>Data de nascimento: {new Date(customer.birthday).toLocaleDateString()}</Text>
+              <Text style={styles.bodyContainerText}>ID: {user.id}</Text>
+              <Text style={styles.bodyContainerText}>E-mail: {user.email}</Text>
               <TouchableOpacity style={styles.button}>
                 <Text style={styles.buttonText}>Detalhar</Text>
               </TouchableOpacity>
@@ -51,10 +37,6 @@ export default class CustomersScreen extends React.Component{
         ))}
         </View>
       </ScrollView>
-      // <View>
-      //   <Text>Customers Screen</Text>
-      //   <Button title="Navegar para usuários" onPress={navigateToUsers} />
-      // </View>
     )
   };
 }

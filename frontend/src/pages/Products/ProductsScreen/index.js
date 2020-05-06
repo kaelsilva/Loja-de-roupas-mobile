@@ -1,35 +1,34 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
-import api from '../../services/api';
+import api from '../../../services/api';
 
 export default class UsersScreen extends React.Component{
   constructor(props){
     super(props);
-    this.state = {
-      users: []
+    this.state={
+      products: []
     }
   }
 
   async componentDidMount(){
-    const response = await api.get('/users');
+    const response = await api.get('/products');
 
-    const users = response.data;
+    const products = response.data;
 
-    this.setState({ users: users });
+    this.setState({ products: products });
   }
 
   render(){
-    const { users } = this.state;
+    const { products } = this.state;
     return (
       <ScrollView>
         <View style={styles.body}>
-        {users.map(user => (
-            <View style={styles.bodyContainer} key={user.id}>
+        {products.map(product => (
+            <View style={styles.bodyContainer} key={product.id}>
               <View style={styles.nameContainer}>
-                <Text style={styles.nameText}>Nome: {user.name}</Text>
+                <Text style={styles.nameText}>Nome: {product.name}</Text>
               </View>
-              <Text style={styles.bodyContainerText}>ID: {user.id}</Text>
-              <Text style={styles.bodyContainerText}>E-mail: {user.email}</Text>
+              <Text style={styles.bodyContainerText}>Quantidade: {product.quantity}</Text>
               <TouchableOpacity style={styles.button}>
                 <Text style={styles.buttonText}>Detalhar</Text>
               </TouchableOpacity>
@@ -37,8 +36,8 @@ export default class UsersScreen extends React.Component{
         ))}
         </View>
       </ScrollView>
-    )
-  };
+    );
+  }
 }
 
 const styles = StyleSheet.create({

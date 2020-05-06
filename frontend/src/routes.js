@@ -3,10 +3,10 @@ import { createStackNavigator } from '@react-navigation/stack';
 const Stack = createStackNavigator();
 
 import AdminIndex from './pages/AdminIndex';
-import Users from './pages/UsersScreen';
-import Customers from './pages/CustomersScreen';
-import Products from './pages/ProductsScreen';
-import Providers from './pages/ProvidersScreen';
+import Users from './pages/Users/UsersScreen';
+import Customers from './pages/Customers/CustomersScreen';
+import Products from './pages/Products/ProductsScreen';
+import Providers from './page/Providers/ProvidersScreen';
 
 import adminHeader from './components/Admin/TitleStyle';
 import customerHeader from './components/Customer/TitleStyle';

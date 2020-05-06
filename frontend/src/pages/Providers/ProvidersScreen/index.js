@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
-import api from '../../services/api';
+import api from '../../../services/api';
 
 export default class ProvidersScreen extends React.Component{
   constructor(props){

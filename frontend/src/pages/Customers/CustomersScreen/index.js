@@ -1,34 +1,49 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, ScrollView } from 'react-native';
-import api from '../../services/api';
+import api from '../../../services/api';
 
-export default class UsersScreen extends React.Component{
+export default class CustomersScreen extends React.Component{
   constructor(props){
     super(props);
-    this.state={
-      products: []
+    this.state = {
+      customers: [],
+      // id: '',
+      // cpf: '',
+      // name: '',
+      // email: '',
+      // birthday: '',
+      // createdAt: '',
+      // updatedAt: '',
     }
   }
 
   async componentDidMount(){
-    const response = await api.get('/products');
+    const response = await api.get('/customers');
 
-    const products = response.data;
+    const customers = response.data;
 
-    this.setState({ products: products });
+    this.setState({ customers: customers });
   }
 
+  // navigateToUsers(){
+  //   navigation.navigate('Users')
+  // }
+
+
   render(){
-    const { products } = this.state;
+    const { customers } = this.state;
     return (
       <ScrollView>
         <View style={styles.body}>
-        {products.map(product => (
-            <View style={styles.bodyContainer} key={product.id}>
+        {customers.map(customer => (
+            <View style={styles.bodyContainer} key={customer.id}>
               <View style={styles.nameContainer}>
-                <Text style={styles.nameText}>Nome: {product.name}</Text>
+                <Text style={styles.nameText}>Nome: {customer.name}</Text>
               </View>
-              <Text style={styles.bodyContainerText}>Quantidade: {product.quantity}</Text>
+              <Text style={styles.bodyContainerText}>ID: {customer.id}</Text>
+              <Text style={styles.bodyContainerText}>CPF: {customer.cpf}</Text>
+              <Text style={styles.bodyContainerText}>E-mail: {customer.email}</Text>
+              <Text style={styles.bodyContainerText}>Data de nascimento: {new Date(customer.birthday).toLocaleDateString()}</Text>
               <TouchableOpacity style={styles.button}>
                 <Text style={styles.buttonText}>Detalhar</Text>
               </TouchableOpacity>
@@ -36,8 +51,12 @@ export default class UsersScreen extends React.Component{
         ))}
         </View>
       </ScrollView>
-    );
-  }
+      // <View>
+      //   <Text>Customers Screen</Text>
+      //   <Button title="Navegar para usuários" onPress={navigateToUsers} />
+      // </View>
+    )
+  };
 }
 
 const styles = StyleSheet.create({
