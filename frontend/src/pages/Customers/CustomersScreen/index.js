@@ -7,13 +7,6 @@ export default class CustomersScreen extends React.Component{
     super(props);
     this.state = {
       customers: [],
-      // id: '',
-      // cpf: '',
-      // name: '',
-      // email: '',
-      // birthday: '',
-      // createdAt: '',
-      // updatedAt: '',
     }
   }
 
@@ -24,11 +17,6 @@ export default class CustomersScreen extends React.Component{
 
     this.setState({ customers: customers });
   }
-
-  // navigateToUsers(){
-  //   navigation.navigate('Users')
-  // }
-
 
   render(){
     const { customers } = this.state;
@@ -44,17 +32,13 @@ export default class CustomersScreen extends React.Component{
               <Text style={styles.bodyContainerText}>CPF: {customer.cpf}</Text>
               <Text style={styles.bodyContainerText}>E-mail: {customer.email}</Text>
               <Text style={styles.bodyContainerText}>Data de nascimento: {new Date(customer.birthday).toLocaleDateString()}</Text>
-              <TouchableOpacity style={styles.button}>
+              <TouchableOpacity style={styles.button} >
                 <Text style={styles.buttonText}>Detalhar</Text>
               </TouchableOpacity>
             </View>
         ))}
         </View>
       </ScrollView>
-      // <View>
-      //   <Text>Customers Screen</Text>
-      //   <Button title="Navegar para usuários" onPress={navigateToUsers} />
-      // </View>
     )
   };
 }
