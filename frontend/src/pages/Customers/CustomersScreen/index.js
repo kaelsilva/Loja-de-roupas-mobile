@@ -32,7 +32,7 @@ export default class CustomersScreen extends React.Component{
               <Text style={styles.bodyContainerText}>CPF: {customer.cpf}</Text>
               <Text style={styles.bodyContainerText}>E-mail: {customer.email}</Text>
               <Text style={styles.bodyContainerText}>Data de nascimento: {new Date(customer.birthday).toLocaleDateString()}</Text>
-              <TouchableOpacity style={styles.button} >
+              <TouchableOpacity style={styles.button} onPress={()=>this.props.navigation.navigate('CustomerDetail', { id: customer.id })} >
                 <Text style={styles.buttonText}>Detalhar</Text>
               </TouchableOpacity>
             </View>
