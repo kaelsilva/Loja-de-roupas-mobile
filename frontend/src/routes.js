@@ -6,13 +6,15 @@ import AdminIndex from './pages/AdminIndex';
 import Users from './pages/Users/UsersScreen';
 import Customers from './pages/Customers/CustomersScreen';
 import Products from './pages/Products/ProductsScreen';
-import Providers from './page/Providers/ProvidersScreen';
+import Providers from './pages/Providers/ProvidersScreen';
 
 import adminHeader from './components/Admin/TitleStyle';
 import customerHeader from './components/Customer/TitleStyle';
 import usersHeader from './components/Users/TitleStyle';
 import productsHeader from './components/Products/TitleStyle';
 import providersHeader from './components/Providers/TitleStyle';
+
+import customerDetail from './pages/Customers/CustomerDetail';
 
 export default function Routes(){
   return(
@@ -22,6 +24,7 @@ export default function Routes(){
         <Stack.Screen name="Users" component={Users} options={usersHeader} />
         <Stack.Screen name='Products' component={Products} options={productsHeader} />
         <Stack.Screen name='Providers' component={Providers} options={providersHeader} />
+        <Stack.Screen name='CustomerDetail' component={customerDetail} />
     </Stack.Navigator>
   );
 }
