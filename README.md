@@ -7,6 +7,8 @@ Este repositório tem como objetivo o desenvolvimento de uma aplicação mobile 
     * Express
   * React-Native
   * React-Native-CLI
+  * React-Navigation
+  * Axios
 ### Desenvolvimento
   * Docker
   * Nodemon
