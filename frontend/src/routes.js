@@ -9,10 +9,11 @@ import Products from './pages/Products/ProductsScreen';
 import Providers from './pages/Providers/ProvidersScreen';
 
 import adminHeader from './components/Admin/TitleStyle';
-import customerHeader from './components/Customer/TitleStyle';
+import customerHeader from './components/Customer/TitleStyle/CustomersIndex';
 import usersHeader from './components/Users/TitleStyle';
 import productsHeader from './components/Products/TitleStyle';
 import providersHeader from './components/Providers/TitleStyle';
+import customerDetailHeader from './components/Customer/TitleStyle/CustomerDetail';
 
 import customerDetail from './pages/Customers/CustomerDetail';
 
@@ -24,7 +25,7 @@ export default function Routes(){
         <Stack.Screen name="Users" component={Users} options={usersHeader} />
         <Stack.Screen name='Products' component={Products} options={productsHeader} />
         <Stack.Screen name='Providers' component={Providers} options={providersHeader} />
-        <Stack.Screen name='CustomerDetail' component={customerDetail} />
+        <Stack.Screen name='CustomerDetail' component={customerDetail} options={customerDetailHeader}/>
     </Stack.Navigator>
   );
 }
