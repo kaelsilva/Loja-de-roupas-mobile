@@ -27,13 +27,42 @@ export default class CustomerDetail extends React.Component {
     this.setState({ customer: response.data });
   }
 
+  formatDate(date){
+    let day  = date.getDate().toString(),
+    dayF = (day.length == 1) ? '0'+day : day,
+    month  = (date.getMonth()+1).toString(), //+1 pois no getMonth Janeiro começa com zero.
+    monthF = (month.length == 1) ? '0'+month : month,
+    yearF = date.getFullYear();
+    return dayF+"/"+monthF+"/"+yearF;
+  }
+
   render(){
     const customer = this.state.customer;
     return(
       <ScrollView>
         <View style={styles.body}>
             <View style={styles.bodyContainer} key={customer.id}>
-              <Input placeholder="Nome" />
+              <View style={styles.nameContainer}>
+                <Text style={styles.nameText}>Dados do cliente</Text>
+              </View>
+
+              <Text style={styles.bodyContainerText}>Nome:</Text>
+              <Input placeholder="Nome" value={customer.name}/>
+
+              <Text style={styles.bodyContainerText}>CPF:</Text>
+              <Input placeholder="CPF" value={customer.cpf}/>
+
+              <Text style={styles.bodyContainerText}>E-mail:</Text>
+              <Input placeholder="E-mail" value={customer.email}/>
+              
+              <Text style={styles.bodyContainerText}>Data de nascimento:</Text>
+              <Input placeholder="Data de nascimento" value={this.formatDate(new Date(customer.birthday))}/>
+
+              <Text style={styles.bodyContainerText}>Criado em:</Text>
+              <Input placeholder="Data de criação" value={this.formatDate(new Date(customer.createdAt))} setEditable="false" />
+
+              <Text style={styles.bodyContainerText}>Atualizado em:</Text>
+              <Input placeholder="Data de criação" value={this.formatDate(new Date(customer.updatedAt))} setEditable="false" />
             </View>
         </View>
       </ScrollView>
