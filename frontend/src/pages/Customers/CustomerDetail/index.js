@@ -15,8 +15,17 @@ export default class CustomerDetail extends React.Component {
         birthday: '',
         createdAt: '',
         updatedAt: '',
-      }
+      },
     };
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(name, value) {
+    
+    this.setState({ customer: { ...this.state.customer,
+                                [name]: value }});
+
+    // console.log(this.state.customer.name);
   }
 
   async componentDidMount(){
@@ -47,7 +56,7 @@ export default class CustomerDetail extends React.Component {
               </View>
 
               <Text style={styles.bodyContainerText}>Nome:</Text>
-              <Input placeholder="Nome" value={customer.name}/>
+              <Input placeholder="Nome" defaultValue={customer.name} onChangeText={(txt) => this.handleChange("name", txt)}/>
 
               <Text style={styles.bodyContainerText}>CPF:</Text>
               <Input placeholder="CPF" value={customer.cpf}/>
@@ -139,5 +148,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'space-around',
     width: '80%',
+    height: '80%',
   },
 });
