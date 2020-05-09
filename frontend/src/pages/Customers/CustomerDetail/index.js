@@ -63,6 +63,16 @@ export default class CustomerDetail extends React.Component {
 
               <Text style={styles.bodyContainerText}>Atualizado em:</Text>
               <Input placeholder="Data de criação" value={this.formatDate(new Date(customer.updatedAt))} setEditable="false" />
+
+              <View style={styles.footerButtonsContainer}>
+                <TouchableOpacity style={styles.button}>
+                  <Text style={styles.buttonText}>Voltar</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button}>
+                  <Text style={styles.buttonText}>Alterar</Text>
+                </TouchableOpacity>  
+              </View>
+
             </View>
         </View>
       </ScrollView>
@@ -117,12 +127,17 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
     marginTop: 10,
     borderColor: '#da552f',
-    display: 'flex',
-    justifyContent: 'center',
-    alignSelf: 'center'
+    justifyContent: 'center'
   },
   buttonText: {
     color: '#da552f',
     alignSelf: 'center',
+  },
+  footerButtonsContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignSelf: 'center',
+    justifyContent: 'space-around',
+    width: '80%',
   },
 });
