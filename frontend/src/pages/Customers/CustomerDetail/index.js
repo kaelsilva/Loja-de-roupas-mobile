@@ -21,11 +21,11 @@ export default class CustomerDetail extends React.Component {
   }
 
   handleChange(name, value) {
-    
+
     this.setState({ customer: { ...this.state.customer,
                                 [name]: value }});
 
-    // console.log(this.state.customer.name);
+    console.log(this.state.customer.birthday);
   }
 
   async componentDidMount(){
@@ -39,7 +39,7 @@ export default class CustomerDetail extends React.Component {
   formatDate(date){
     let day  = date.getDate().toString(),
     dayF = (day.length == 1) ? '0'+day : day,
-    month  = (date.getMonth()+1).toString(), //+1 pois no getMonth Janeiro começa com zero.
+    month  = (date.getMonth()+1).toString(),
     monthF = (month.length == 1) ? '0'+month : month,
     yearF = date.getFullYear();
     return dayF+"/"+monthF+"/"+yearF;
@@ -56,16 +56,16 @@ export default class CustomerDetail extends React.Component {
               </View>
 
               <Text style={styles.bodyContainerText}>Nome:</Text>
-              <Input placeholder="Nome" defaultValue={customer.name} onChangeText={(txt) => this.handleChange("name", txt)}/>
+              <Input placeholder="Nome" defaultValue={customer.name} onChangeText={(txt) => this.handleChange('name', txt)}/>
 
               <Text style={styles.bodyContainerText}>CPF:</Text>
-              <Input placeholder="CPF" value={customer.cpf}/>
+              <Input placeholder="CPF" defaultValue={customer.cpf} onChangeText={(txt) => this.handleChange('cpf', txt)}/>
 
               <Text style={styles.bodyContainerText}>E-mail:</Text>
-              <Input placeholder="E-mail" value={customer.email}/>
+              <Input placeholder="E-mail" defaultValue={customer.email} onChangeText={(txt) => this.handleChange('email', txt)}/>
               
               <Text style={styles.bodyContainerText}>Data de nascimento:</Text>
-              <Input placeholder="Data de nascimento" value={this.formatDate(new Date(customer.birthday))}/>
+              <Input placeholder="Data de nascimento" defaultValue={this.formatDate(new Date(customer.birthday))} onChangeText={(txt) => this.handleChange('birthday', txt)}/>
 
               <Text style={styles.bodyContainerText}>Criado em:</Text>
               <Input placeholder="Data de criação" value={this.formatDate(new Date(customer.createdAt))} setEditable="false" />
