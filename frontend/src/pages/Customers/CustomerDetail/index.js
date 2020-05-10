@@ -8,24 +8,15 @@ export default class CustomerDetail extends React.Component {
     super(props);
     this.state = {
       customer: {
-        id: '',
-        cpf: '',
-        name: '',
-        email: '',
-        birthday: '',
-        createdAt: '',
-        updatedAt: '',
       },
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleChange(name, value) {
-
     this.setState({ customer: { ...this.state.customer,
                                 [name]: value }});
-
-    console.log(this.state.customer.birthday);
   }
 
   async componentDidMount(){
@@ -34,6 +25,17 @@ export default class CustomerDetail extends React.Component {
     const response = await api.get(`/customers/${id}`);
 
     this.setState({ customer: response.data });
+  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+
+    const customer = this.state.customer;
+
+    const { id } = this.props.route.params;
+
+    api.put(`/customers/${id}`, customer);
+    console.log('Cliente alterado com sucesso!');
   }
 
   formatDate(date){
@@ -77,8 +79,8 @@ export default class CustomerDetail extends React.Component {
                 <TouchableOpacity style={styles.button}>
                   <Text style={styles.buttonText}>Voltar</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
-                  <Text style={styles.buttonText}>Alterar</Text>
+                <TouchableOpacity style={styles.button} onPress={this.handleSubmit}>
+                  <Text style={styles.buttonText} >Alterar</Text>
                 </TouchableOpacity>  
               </View>
 
