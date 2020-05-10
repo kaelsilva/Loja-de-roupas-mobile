@@ -1,11 +1,7 @@
-import axios from 'axios';
+import { create } from 'apisauce';
 
-const api = axios.create({
-  baseURL: 'http://192.168.0.129:3333',
-  headers: {
-    "Content-Type": "application/x-www-form-urlencoded",
-    Accept: "application/json"
-  }
+const api = create({
+  baseURL: 'http://192.168.0.129:3333'
 });
 
 export default api;
