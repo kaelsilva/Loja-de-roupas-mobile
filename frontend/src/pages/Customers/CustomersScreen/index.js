@@ -46,12 +46,12 @@ export default class CustomersScreen extends React.Component{
 const styles = StyleSheet.create({
   body: {
     backgroundColor: '#eee',
-    height: '90%',
+    height: '100%',
     width: '95%',
     alignSelf: 'center',
     padding: 1,
-    paddingTop: 80,
     justifyContent: 'center',
+    paddingBottom: 20,
   },
   nameContainer: {
     backgroundColor: '#da552f',
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     backgroundColor: '#ddd',
     marginTop: 20,
-    borderRadius: 25
+    borderRadius: 25,
   },
   bodyContainerText: {
     textAlign: 'left',
