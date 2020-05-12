@@ -23,7 +23,7 @@ export default class CustomersScreen extends React.Component{
     return (
       <ScrollView>
         <View style={styles.headerContainer}>
-          <TouchableOpacity style={styles.buttonHeader}  >
+          <TouchableOpacity style={styles.buttonHeader} onPress={() => this.props.navigation.navigate('CustomerCreation')} >
             <Text style={styles.buttonHeaderText}>+</Text>
           </TouchableOpacity>
         </View>
