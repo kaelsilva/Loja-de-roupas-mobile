@@ -59,7 +59,7 @@ export default class CustomerCreation extends React.Component {
 
               <View style={styles.footerButtonsContainer}>
                 <TouchableOpacity style={styles.button} onPress={this.handleSubmit}>
-                  <Text style={styles.buttonText} >Alterar</Text>
+                  <Text style={styles.buttonText} >Criar</Text>
                 </TouchableOpacity>  
               </View>
 
