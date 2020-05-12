@@ -38,6 +38,16 @@ export default class CustomerDetail extends React.Component {
     console.log('Cliente alterado com sucesso!');
   }
 
+  handleDelete = event => {
+    event.preventDefault();
+
+    const { id } = this.props.route.params;
+
+    api.delete(`/customers/${id}`);
+
+    console.log('Cliente deletado com sucesso!');
+  }
+
   formatDate(date){
     let day  = date.getDate().toString(),
     dayF = (day.length == 1) ? '0'+day : day,
@@ -77,7 +87,7 @@ export default class CustomerDetail extends React.Component {
 
               <View style={styles.footerButtonsContainer}>
                 <TouchableOpacity style={styles.button}>
-                  <Text style={styles.buttonText}>Voltar</Text>
+                  <Text style={styles.buttonText} onPress={this.handleDelete} >Deletar</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button} onPress={this.handleSubmit}>
                   <Text style={styles.buttonText} >Alterar</Text>
@@ -151,5 +161,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     width: '80%',
     height: '80%',
+    paddingBottom: 18,
   },
 });
