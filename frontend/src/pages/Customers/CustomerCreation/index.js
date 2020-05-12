@@ -19,14 +19,6 @@ export default class CustomerCreation extends React.Component {
                                 [name]: value }});
   }
 
-  // async componentDidMount(){
-  //   const { id } = this.props.route.params;
-
-  //   const response = await api.get(`/customers/${id}`);
-
-  //   this.setState({ customer: response.data });
-  // }
-
   handleSubmit = event => {
     event.preventDefault();
 
@@ -55,7 +47,7 @@ export default class CustomerCreation extends React.Component {
               <Input placeholder="E-mail" onChangeText={(txt) => this.handleChange('email', txt)}/>
               
               <Text style={styles.bodyContainerText}>Data de nascimento:</Text>
-              <Input placeholder="Data de nascimento" onEndEditing={(txt) => this.handleChange('birthday', txt)}/>
+              <Input placeholder="Data de nascimento" onChangeText={(txt) => this.handleChange('birthday', txt)}/>
 
               <View style={styles.footerButtonsContainer}>
                 <TouchableOpacity style={styles.button} onPress={this.handleSubmit}>
