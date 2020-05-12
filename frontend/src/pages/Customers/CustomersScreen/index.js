@@ -22,21 +22,29 @@ export default class CustomersScreen extends React.Component{
     const { customers } = this.state;
     return (
       <ScrollView>
+        <View style={styles.headerContainer}>
+          <TouchableOpacity style={styles.buttonHeader}  >
+            <Text style={styles.buttonHeaderText}>+</Text>
+          </TouchableOpacity>
+        </View>
+
         <View style={styles.body}>
-        {customers.map(customer => (
+          {customers.map(customer => (
             <View style={styles.bodyContainer} key={customer.id}>
               <View style={styles.nameContainer}>
                 <Text style={styles.nameText}>Nome: {customer.name}</Text>
               </View>
+            
               <Text style={styles.bodyContainerText}>ID: {customer.id}</Text>
               <Text style={styles.bodyContainerText}>CPF: {customer.cpf}</Text>
               <Text style={styles.bodyContainerText}>E-mail: {customer.email}</Text>
               <Text style={styles.bodyContainerText}>Data de nascimento: {new Date(customer.birthday).toLocaleDateString()}</Text>
+            
               <TouchableOpacity style={styles.button} onPress={()=>this.props.navigation.navigate('CustomerDetail', { id: customer.id })} >
                 <Text style={styles.buttonText}>Detalhar</Text>
               </TouchableOpacity>
             </View>
-        ))}
+          ))}
         </View>
       </ScrollView>
     )
@@ -44,6 +52,28 @@ export default class CustomersScreen extends React.Component{
 }
 
 const styles = StyleSheet.create({
+  headerContainer: {
+    height: 60,
+  },
+  buttonHeader: {
+    height: 50,
+    width: 50,
+    borderRadius: 50,
+    borderWidth: 2,
+    backgroundColor: '#da552f',
+    marginTop: 10,
+    marginEnd: 10,
+    borderColor: '#ddd',
+    display: 'flex',
+    justifyContent: 'center',
+    alignSelf: 'flex-end',
+    alignItems: 'center'
+  },
+  buttonHeaderText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 20
+  },
   body: {
     backgroundColor: '#eee',
     height: '100%',
@@ -72,7 +102,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingBottom: 20,
     backgroundColor: '#ddd',
-    marginTop: 20,
     borderRadius: 25,
   },
   bodyContainerText: {
