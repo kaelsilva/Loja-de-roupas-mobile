@@ -19,12 +19,12 @@ export default class CustomerCreation extends React.Component {
                                 [name]: value }});
   }
 
-  handleSubmit = event => {
+  handleSubmit = async event => {
     event.preventDefault();
 
     const customer = this.state.customer;
 
-    api.post(`/customers`, customer);
+    await api.post(`/customers`, customer);
     console.log('Cliente adicionado com sucesso!');
   }
 
