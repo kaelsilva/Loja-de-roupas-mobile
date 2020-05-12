@@ -86,8 +86,8 @@ export default class CustomerDetail extends React.Component {
               <Input placeholder="Data de criação" value={this.formatDate(new Date(customer.updatedAt))} setEditable="false" />
 
               <View style={styles.footerButtonsContainer}>
-                <TouchableOpacity style={styles.button}>
-                  <Text style={styles.buttonText} onPress={this.handleDelete} >Deletar</Text>
+                <TouchableOpacity style={styles.button} onPress={this.handleDelete}>
+                  <Text style={styles.buttonText} >Deletar</Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.button} onPress={this.handleSubmit}>
                   <Text style={styles.buttonText} >Alterar</Text>
