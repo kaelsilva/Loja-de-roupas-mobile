@@ -57,6 +57,14 @@ export default class CustomerDetail extends React.Component {
     return dayF+"/"+monthF+"/"+yearF;
   }
 
+  unformatDate(txt){
+    let day = txt.substr(0, 2);
+    let month = txt.substr(3, 2);
+    let year = txt.substr(6, 10);
+
+    return year+'-'+month+'-'+day;
+  }
+
   render(){
     const customer = this.state.customer;
     return(
@@ -77,7 +85,7 @@ export default class CustomerDetail extends React.Component {
               <Input placeholder="E-mail" defaultValue={customer.email} onChangeText={(txt) => this.handleChange('email', txt)}/>
               
               <Text style={styles.bodyContainerText}>Data de nascimento:</Text>
-              <Input placeholder="Data de nascimento" defaultValue={this.formatDate(new Date(customer.birthday))} onChangeText={(txt) => this.handleChange('birthday', txt)}/>
+              <Input placeholder="Data de nascimento" defaultValue={this.formatDate(new Date(customer.birthday))} onEndEditing={(txt) => this.handleChange('birthday', this.unformatDate(txt.nativeEvent.text))}/>
 
               <Text style={styles.bodyContainerText}>Criado em:</Text>
               <Input placeholder="Data de criação" value={this.formatDate(new Date(customer.createdAt))} setEditable="false" />
