@@ -55,7 +55,7 @@ export default class UsersScreen extends React.Component{
               <Text style={styles.bodyContainerText}>Quantidade: {product.quantity}</Text>
               <Text style={styles.bodyContainerText}>Preço (un.): R$ {product.price.toFixed(2)}</Text>
               <Text style={styles.bodyContainerText}>Fornecedor: {this.getProvidersName(product.providers_id)}</Text>
-              <TouchableOpacity style={styles.button}>
+              <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('ProductDetail', { id: product.id })}>
                 <Text style={styles.buttonText}>Detalhar</Text>
               </TouchableOpacity>
             </View>
