@@ -14,9 +14,9 @@ module.exports = {
     },
 
     async store(req, res){
-        const { name, quantity } = req.body;
+        const { name, quantity, price, providers_id } = req.body;
 
-        const product = await Product.create( { name, quantity } );
+        const product = await Product.create( { name, quantity, price, providers_id } );
 
         return res.json(product);
     },
@@ -32,10 +32,10 @@ module.exports = {
     },
 
     async update(req, res){
-        const { name, quantity } = req.body;
+        const { name, quantity, price, providers_id } = req.body;
 
         const product = await Product.update({ 
-            name, quantity }, {
+            name, quantity, price, providers_id }, {
                 where: {
                     id: req.params.id,
                 },
