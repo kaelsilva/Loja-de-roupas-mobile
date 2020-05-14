@@ -40,6 +40,12 @@ export default class UsersScreen extends React.Component{
     const { products } = this.state;
     return (
       <ScrollView>
+        <View style={styles.headerContainer}>
+          <TouchableOpacity style={styles.buttonHeader} onPress={() => this.props.navigation.navigate('ProductCreation')} >
+            <Text style={styles.buttonHeaderText}>+</Text>
+          </TouchableOpacity>
+        </View>
+
         <View style={styles.body}>
         {products.map(product => (
             <View style={styles.bodyContainer} key={product.id}>
@@ -61,6 +67,28 @@ export default class UsersScreen extends React.Component{
 }
 
 const styles = StyleSheet.create({
+  headerContainer: {
+    height: 60,
+  },
+  buttonHeader: {
+    height: 50,
+    width: 50,
+    borderRadius: 50,
+    borderWidth: 2,
+    backgroundColor: '#da552f',
+    marginTop: 10,
+    marginEnd: 10,
+    borderColor: '#ddd',
+    display: 'flex',
+    justifyContent: 'center',
+    alignSelf: 'flex-end',
+    alignItems: 'center'
+  },
+  buttonHeaderText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 20
+  },
   body: {
     backgroundColor: '#eee',
     height: '90%',
