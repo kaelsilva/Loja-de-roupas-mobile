@@ -18,6 +18,15 @@ export default class CustomersScreen extends React.Component{
     this.setState({ customers: customers });
   }
 
+  formatDate(date){
+    let day  = date.getDate().toString(),
+    dayF = (day.length == 1) ? '0'+day : day,
+    month  = (date.getMonth()+1).toString(),
+    monthF = (month.length == 1) ? '0'+month : month,
+    yearF = date.getFullYear();
+    return dayF+"/"+monthF+"/"+yearF;
+  }
+
   render(){
     const { customers } = this.state;
     return (
@@ -38,7 +47,7 @@ export default class CustomersScreen extends React.Component{
               <Text style={styles.bodyContainerText}>ID: {customer.id}</Text>
               <Text style={styles.bodyContainerText}>CPF: {customer.cpf}</Text>
               <Text style={styles.bodyContainerText}>E-mail: {customer.email}</Text>
-              <Text style={styles.bodyContainerText}>Data de nascimento: {new Date(customer.birthday).toLocaleDateString()}</Text>
+              <Text style={styles.bodyContainerText}>Data de nascimento: {this.formatDate(new Date(customer.birthday))}</Text>
             
               <TouchableOpacity style={styles.button} onPress={()=>this.props.navigation.navigate('CustomerDetail', { id: customer.id })} >
                 <Text style={styles.buttonText}>Detalhar</Text>
