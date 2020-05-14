@@ -13,12 +13,13 @@ import CustomerCreation from './pages/Customers/CustomerCreation';
 import adminHeader from './components/Admin/TitleStyle';
 import customerHeader from './components/Customer/TitleStyle/CustomersIndex';
 import usersHeader from './components/Users/TitleStyle';
-import productsHeader from './components/Products/TitleStyle';
+import productsHeader from './components/Products/TitleStyle/ProductsIndex';
 import providersHeader from './components/Providers/TitleStyle';
 import customerDetailHeader from './components/Customer/TitleStyle/CustomerDetail';
 import customerCreationHeader from './components/Customer/TitleStyle/CustomerCreation';
 
-import customerDetail from './pages/Customers/CustomerDetail';
+import CustomerDetail from './pages/Customers/CustomerDetail';
+import ProductDetail from './pages/Products/ProductDetail';
 
 export default function Routes(){
   return(
@@ -28,8 +29,9 @@ export default function Routes(){
         <Stack.Screen name="Users" component={Users} options={usersHeader} />
         <Stack.Screen name='Products' component={Products} options={productsHeader} />
         <Stack.Screen name='Providers' component={Providers} options={providersHeader} />
-        <Stack.Screen name='CustomerDetail' component={customerDetail} options={customerDetailHeader}/>
+        <Stack.Screen name='CustomerDetail' component={CustomerDetail} options={customerDetailHeader}/>
         <Stack.Screen name='CustomerCreation' component={CustomerCreation} options={customerCreationHeader}/>
+        <Stack.Screen name='ProductDetail' component={ProductDetail} options={customerCreationHeader}/>
     </Stack.Navigator>
   );
 }
