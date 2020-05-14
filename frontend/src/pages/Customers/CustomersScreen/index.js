@@ -85,12 +85,11 @@ const styles = StyleSheet.create({
   },
   body: {
     backgroundColor: '#eee',
-    height: '100%',
+    height: '90%',
     width: '95%',
     alignSelf: 'center',
-    padding: 1,
+    paddingTop: 20,
     justifyContent: 'center',
-    paddingBottom: 20,
   },
   nameContainer: {
     backgroundColor: '#da552f',
@@ -111,7 +110,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     paddingBottom: 20,
     backgroundColor: '#ddd',
-    borderRadius: 25,
+    marginTop: 20,
+    borderRadius: 25
   },
   bodyContainerText: {
     textAlign: 'left',
