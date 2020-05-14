@@ -94,8 +94,7 @@ const styles = StyleSheet.create({
     height: '90%',
     width: '95%',
     alignSelf: 'center',
-    padding: 1,
-    paddingTop: 80,
+    paddingTop: 20,
     justifyContent: 'center',
   },
   nameContainer: {
