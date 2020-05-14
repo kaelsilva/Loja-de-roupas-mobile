@@ -5,6 +5,8 @@ class Product extends Model {
         super.init({
             name: DataTypes.STRING,
             quantity: DataTypes.INTEGER,
+            price: DataTypes.DOUBLE,
+            providers_id: DataTypes.INTEGER,
         }, {
             sequelize
         });
