@@ -6,20 +6,29 @@ export default class UsersScreen extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      products: []
+      products: [],
+      providers: [],
     }
   }
 
   async componentDidMount(){
-    const response = await api.get('/products');
+    const response_products = await api.get('/products');
 
-    const products = response.data;
+    const products = response_products.data;
 
     this.setState({ products: products });
+
+
+    const response_providers = await api.get('/providers');
+
+    const providers = response_providers.data;
+
+    this.setState({ providers: providers });
   }
 
   render(){
     const { products } = this.state;
+    const { providers } = this.state;
     return (
       <ScrollView>
         <View style={styles.body}>
@@ -29,6 +38,7 @@ export default class UsersScreen extends React.Component{
                 <Text style={styles.nameText}>Nome: {product.name}</Text>
               </View>
               <Text style={styles.bodyContainerText}>Quantidade: {product.quantity}</Text>
+              <Text style={styles.bodyContainerText}>Preço (un.): R$ {product.price.toFixed(2)}</Text>
               <TouchableOpacity style={styles.button}>
                 <Text style={styles.buttonText}>Detalhar</Text>
               </TouchableOpacity>
