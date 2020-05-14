@@ -26,9 +26,18 @@ export default class UsersScreen extends React.Component{
     this.setState({ providers: providers });
   }
 
+  getProvidersName(id){
+    const providers = this.state.providers;
+    const provider = providers.map(provider => {
+      if (provider.id === id){
+        return provider.name;
+      }
+    });
+    return provider;
+  }
+
   render(){
     const { products } = this.state;
-    const { providers } = this.state;
     return (
       <ScrollView>
         <View style={styles.body}>
@@ -39,6 +48,7 @@ export default class UsersScreen extends React.Component{
               </View>
               <Text style={styles.bodyContainerText}>Quantidade: {product.quantity}</Text>
               <Text style={styles.bodyContainerText}>Preço (un.): R$ {product.price.toFixed(2)}</Text>
+              <Text style={styles.bodyContainerText}>Fornecedor: {this.getProvidersName(product.providers_id)}</Text>
               <TouchableOpacity style={styles.button}>
                 <Text style={styles.buttonText}>Detalhar</Text>
               </TouchableOpacity>
