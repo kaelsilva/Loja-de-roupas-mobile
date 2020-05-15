@@ -22,6 +22,12 @@ export default class ProvidersScreen extends React.Component{
     const { providers } = this.state;
     return (
       <ScrollView>
+        <View style={styles.headerContainer}>
+          <TouchableOpacity style={styles.buttonHeader} onPress={() => this.props.navigation.navigate('ProviderCreation')} >
+            <Text style={styles.buttonHeaderText}>+</Text>
+          </TouchableOpacity>
+        </View>
+
         <View style={styles.body}>
         {providers.map(provider => (
             <View style={styles.bodyContainer} key={provider.id}>
@@ -43,13 +49,34 @@ export default class ProvidersScreen extends React.Component{
 }
 
 const styles = StyleSheet.create({
+  headerContainer: {
+    height: 60,
+  },
+  buttonHeader: {
+    height: 50,
+    width: 50,
+    borderRadius: 50,
+    borderWidth: 2,
+    backgroundColor: '#da552f',
+    marginTop: 10,
+    marginEnd: 10,
+    borderColor: '#ddd',
+    display: 'flex',
+    justifyContent: 'center',
+    alignSelf: 'flex-end',
+    alignItems: 'center'
+  },
+  buttonHeaderText: {
+    color: '#fff',
+    fontWeight: 'bold',
+    fontSize: 20
+  },
   body: {
     backgroundColor: '#eee',
     height: '90%',
     width: '95%',
     alignSelf: 'center',
-    padding: 1,
-    paddingTop: 80,
+    paddingTop: 20,
     justifyContent: 'center',
   },
   nameContainer: {
