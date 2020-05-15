@@ -10,6 +10,7 @@ import Providers from './pages/Providers/ProvidersScreen';
 
 import CustomerCreation from './pages/Customers/CustomerCreation';
 import ProductCreation from './pages/Products/ProductCreation';
+import ProviderCreation from './pages/Providers/ProviderCreation';
 
 import adminHeader from './components/Admin/TitleStyle';
 import customerHeader from './components/Customer/TitleStyle/CustomersIndex';
@@ -39,6 +40,7 @@ export default function Routes(){
         <Stack.Screen name='ProductDetail' component={ProductDetail} options={productDetailHeader}/>
         <Stack.Screen name='ProductCreation' component={ProductCreation} options={productCreationHeader}/>
         <Stack.Screen name='ProviderDetail' component={ProviderDetail} options={providerDetailHeader}/>
+        <Stack.Screen name='ProviderCreation' component={ProviderCreation} options={providerDetailHeader}/>
     </Stack.Navigator>
   );
 }
