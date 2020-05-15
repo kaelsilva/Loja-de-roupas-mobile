@@ -64,7 +64,6 @@ export default class ProductDetail extends React.Component {
         providerName = provider.name;
       }
     });
-    console.log(providerName);
     return providerName;
   }
 
@@ -97,7 +96,7 @@ export default class ProductDetail extends React.Component {
               <Input placeholder="Preço" defaultValue={String(product.price)} onChangeText={(txt) => this.handleChange('price', txt)}/>
               
               <Text style={styles.bodyContainerText}>Nome do fornecedor:</Text>
-              <Input placeholder="Fornecedor" defaultValue={this.getProvidersName(product.providers_id)} onChangeText={(txt) => this.handleChange('providers_id', txt)}/>
+              <Input placeholder="Fornecedor" value={this.getProvidersName(product.providers_id)} setEditable="false"/>
 
               <Text style={styles.bodyContainerText}>Criado em:</Text>
               <Input placeholder="Data de criação" value={this.formatDate(new Date(product.createdAt))} setEditable="false" />
