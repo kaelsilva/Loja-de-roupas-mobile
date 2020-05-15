@@ -13,6 +13,7 @@ export default class ProductDetail extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.getProvidersName = this.getProvidersName.bind(this);
   }
 
   handleChange(name, value) {
@@ -57,12 +58,14 @@ export default class ProductDetail extends React.Component {
 
   getProvidersName(id){
     const providers = this.state.providers;
-    const provider = providers.map(provider => {
+    var providerName;
+    providers.map(provider => {
       if (provider.id === id){
-        return provider.name;
+        providerName = provider.name;
       }
     });
-    return String(provider);
+    console.log(providerName);
+    return providerName;
   }
 
   formatDate(date){
