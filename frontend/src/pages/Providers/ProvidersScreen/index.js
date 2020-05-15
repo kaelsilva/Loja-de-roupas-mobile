@@ -37,6 +37,8 @@ export default class ProvidersScreen extends React.Component{
               <Text style={styles.bodyContainerText}>ID: {provider.id}</Text>
               <Text style={styles.bodyContainerText}>E-mail: {provider.email}</Text>
               <Text style={styles.bodyContainerText}>Telefone: {provider.phone}</Text>
+              <Text style={styles.bodyContainerText}>CNPJ: {provider.cnpj}</Text>
+              <Text style={styles.bodyContainerText}>Endereço: {provider.address}</Text>
               <TouchableOpacity style={styles.button} onPress={() => this.props.navigation.navigate('ProviderDetail', { id: provider.id } )}>
                 <Text style={styles.buttonText}>Detalhar</Text>
               </TouchableOpacity>
