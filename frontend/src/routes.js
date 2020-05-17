@@ -7,6 +7,7 @@ import Users from './pages/Users/UsersScreen';
 import Customers from './pages/Customers/CustomersScreen';
 import Products from './pages/Products/ProductsScreen';
 import Providers from './pages/Providers/ProvidersScreen';
+import Sales from './pages/Sales/SalesScreen';
 
 import CustomerCreation from './pages/Customers/CustomerCreation';
 import ProductCreation from './pages/Products/ProductCreation';
@@ -22,6 +23,7 @@ import customerDetailHeader from './components/Customer/TitleStyle/CustomerDetai
 import customerCreationHeader from './components/Customer/TitleStyle/CustomerCreation';
 import productCreationHeader from './components/Products/TitleStyle/ProductCreation';
 import providerDetailHeader from './components/Providers/TitleStyle/ProviderDetail';
+// import salesHeader from './components/Sales/TitleStyle/SalesIndex';
 
 import CustomerDetail from './pages/Customers/CustomerDetail';
 import ProductDetail from './pages/Products/ProductDetail';
@@ -41,6 +43,7 @@ export default function Routes(){
         <Stack.Screen name='ProductCreation' component={ProductCreation} options={productCreationHeader}/>
         <Stack.Screen name='ProviderDetail' component={ProviderDetail} options={providerDetailHeader}/>
         <Stack.Screen name='ProviderCreation' component={ProviderCreation} options={providerDetailHeader}/>
+        <Stack.Screen name='Sales' component={Sales} />
     </Stack.Navigator>
   );
 }
