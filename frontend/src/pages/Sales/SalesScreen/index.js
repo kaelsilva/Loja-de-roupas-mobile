@@ -6,23 +6,51 @@ export default class SalesScreen extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      sales: []
+      sales: [],
+      customers: [],
+      products: [],
     }
   }
 
   async componentDidMount(){
-    const response = await api.get('/sales');
+    const response_sales = await api.get('/sales');
 
-    const sales = response.data;
+    const sales = response_sales.data;
 
     this.setState({ sales: sales });
+
+
+    const response_customers = await api.get('/customers');
+
+    const customers = response_customers.data;
+
+    this.setState({ customers: customers });
+
+
+    const response_products = await api.get('/products');
+
+    const products = response_products.data;
+
+    this.setState({ products: products });
   }
 
   getSaleStatus(status){
-    if (status === 0){
+    if (!status){
       return 'Pendente';
     }
     return 'Finalizado';
+  }
+
+  getCustomerName(id){
+    const customers = this.state.customers;
+    var customerName;
+    customers.map(customer => {
+      if (customer.id === id){
+        customerName = customer.name;
+      }
+    });
+
+    return customerName;
   }
 
   render(){
@@ -41,7 +69,8 @@ export default class SalesScreen extends React.Component{
               <View style={styles.nameContainer}>
                 <Text style={styles.nameText}>ID da venda: {sale.id}</Text>
               </View>
-              <Text style={styles.bodyContainerText}>Nome do consumidor: {sale.customer_id}</Text>
+              <Text style={styles.bodyContainerText}>ID do cliente: {sale.customer_id}</Text>
+              <Text style={styles.bodyContainerText}>Cliente: {this.getCustomerName(sale.customer_id)}</Text>
               <Text style={styles.bodyContainerText}>Produto: {sale.product_id}</Text>
               <Text style={styles.bodyContainerText}>Quantidade: {sale.quantity}</Text>
               <Text style={styles.bodyContainerText}>Preço total: R$ {sale.total_price}</Text>
