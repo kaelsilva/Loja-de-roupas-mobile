@@ -53,6 +53,18 @@ export default class SalesScreen extends React.Component{
     return customerName;
   }
 
+  getProductName(id){
+    const products = this.state.products;
+    var productName;
+    products.map(product => {
+      if (product.id === id){
+        productName = product.name;
+      }
+    });
+
+    return productName;
+  }
+
   render(){
     const { sales } = this.state;
     return (
@@ -71,7 +83,8 @@ export default class SalesScreen extends React.Component{
               </View>
               <Text style={styles.bodyContainerText}>ID do cliente: {sale.customer_id}</Text>
               <Text style={styles.bodyContainerText}>Cliente: {this.getCustomerName(sale.customer_id)}</Text>
-              <Text style={styles.bodyContainerText}>Produto: {sale.product_id}</Text>
+              <Text style={styles.bodyContainerText}>ID do produto: {sale.product_id}</Text>
+              <Text style={styles.bodyContainerText}>Produto: {this.getProductName(sale.product_id)}</Text>
               <Text style={styles.bodyContainerText}>Quantidade: {sale.quantity}</Text>
               <Text style={styles.bodyContainerText}>Preço total: R$ {sale.total_price}</Text>
               <Text style={styles.bodyContainerText}>Pagamento: {this.getSaleStatus(sale.is_finished)}</Text>
