@@ -26,6 +26,7 @@ import productCreationHeader from './components/Products/TitleStyle/ProductCreat
 import providerDetailHeader from './components/Providers/TitleStyle/ProviderDetail';
 import salesHeader from './components/Sales/TitleStyle/SalesIndex';
 import saleCreationHeader from './components/Sales/TitleStyle/SaleCreation';
+import saleDetailHeader from './components/Sales/TitleStyle/SaleDetail';
 
 import CustomerDetail from './pages/Customers/CustomerDetail';
 import ProductDetail from './pages/Products/ProductDetail';
@@ -48,7 +49,7 @@ export default function Routes(){
         <Stack.Screen name='ProviderCreation' component={ProviderCreation} options={providerDetailHeader}/>
         <Stack.Screen name='Sales' component={Sales} options={salesHeader} />
         <Stack.Screen name='SaleCreation' component={SaleCreation} options={saleCreationHeader} />
-        <Stack.Screen name='SaleDetail' component={SaleDetail} />
+        <Stack.Screen name='SaleDetail' component={SaleDetail} options={saleDetailHeader} />
     </Stack.Navigator>
   );
 }
