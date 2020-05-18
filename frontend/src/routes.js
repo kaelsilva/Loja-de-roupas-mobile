@@ -30,6 +30,7 @@ import saleCreationHeader from './components/Sales/TitleStyle/SaleCreation';
 import CustomerDetail from './pages/Customers/CustomerDetail';
 import ProductDetail from './pages/Products/ProductDetail';
 import ProviderDetail from './pages/Providers/ProviderDetail';
+import SaleDetail from './pages/Sales/SaleDetail';
 
 export default function Routes(){
   return(
@@ -47,6 +48,7 @@ export default function Routes(){
         <Stack.Screen name='ProviderCreation' component={ProviderCreation} options={providerDetailHeader}/>
         <Stack.Screen name='Sales' component={Sales} options={salesHeader} />
         <Stack.Screen name='SaleCreation' component={SaleCreation} options={saleCreationHeader} />
+        <Stack.Screen name='SaleDetail' component={SaleDetail} />
     </Stack.Navigator>
   );
 }
